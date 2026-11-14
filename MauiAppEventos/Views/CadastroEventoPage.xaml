@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEventos.Views.CadastroEventoPage"
+             Title="Cadastro de Eventos"
+             NavigationPage.HasNavigationBar="False">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="📅 Novo Evento"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="Center" />
+
+            <Label Text="Nome do Evento:" />
+            <Entry Placeholder="Ex: Workshop .NET MAUI"
+                   Text="{Binding Nome}" />
+
+            <Label Text="Local do Evento:" />
+            <Entry Placeholder="Ex: Auditório Principal"
+                   Text="{Binding Local}" />
+
+            <Grid ColumnDefinitions="*, *" ColumnSpacing="10">
+                <VerticalStackLayout Grid.Column="0">
+                    <Label Text="Data de Início:" />
+                    <DatePicker x:Name="dtpck_inicio"
+                                Date="{Binding DataInicio}"
+                                DateSelected="dtpck_inicio_DateSelected"
+                                Format="dd/MM/yyyy" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Column="1">
+                    <Label Text="Data de Término:" />
+                    <DatePicker x:Name="dtpck_termino"
+                                Date="{Binding DataTermino}"
+                                Format="dd/MM/yyyy" />
+                </VerticalStackLayout>
+            </Grid>
+
+            <Label Text="Número de Participantes:" />
+            <Entry Placeholder="Ex: 50"
+                   Keyboard="Numeric"
+                   Text="{Binding NumeroParticipantes}" />
+
+            <Label Text="Custo por Participante (R$):" />
+            <Entry Placeholder="Ex: 120.00"
+                   Keyboard="Numeric"
+                   Text="{Binding CustoPorParticipante}" />
+
+            <Button Text="Cadastrar Evento"
+                    Margin="0,20,0,0"
+                    Clicked="Button_Clicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
