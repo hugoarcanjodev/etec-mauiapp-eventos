@@ -6,8 +6,17 @@
         {
             InitializeComponent();
 
-            // Define a página inicial encapsulada em uma NavigationPage para permitir a navegação por pilha
             MainPage = new NavigationPage(new Views.CadastroEventoPage());
+        }
+
+        protected override Window CreateWindow(IActivationState? activationState)
+        {
+            var window = base.CreateWindow(activationState);
+
+            window.Width = 480;
+            window.Height = 850;
+
+            return window;
         }
     }
 }
